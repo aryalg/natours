@@ -8,6 +8,8 @@ const xssClean = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
+
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 
@@ -26,6 +28,13 @@ const bookingRouter = require('./routes/bookingRoutes');
 const viewRouter = require('./routes/viewRoutes');
 
 // 1) GLOBAL MIDDLEWARES
+
+// Implement Cors
+app.use(cors());
+// Access-Control-Allow-Origin *
+
+// Preflight Phase
+app.options('*', cors());
 
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
