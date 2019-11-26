@@ -11,3 +11,4 @@ This code was:
 Replace by code below:
 app.route('/api/v1/tours').get(getAllTours).post(createTour)
 app.route('/api/v1/tours').get(getTour).patch(updateTour).delete(deleteTour)
+"# natours" 
